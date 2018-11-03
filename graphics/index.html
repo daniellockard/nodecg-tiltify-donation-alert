@@ -39,7 +39,7 @@
 
 		stage.addChild(alert.container);
 
-		var donationsRep = nodecg.Replicant("donations", "tiltify-api");
+		var donationsRep = nodecg.Replicant("donations", "nodecg-tiltify");
 
 		donationsRep.on("change", function(newvalue, oldvalue) {
 			for(let i = 0; i < newvalue.length; i++) {
