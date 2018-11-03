@@ -20,6 +20,9 @@
   ],
   "nodecg": {
     "compatibleRange": "^1.1.1",
+    "bundleDependencies": {
+      "nodecg-tiltify": "^0.0.0"
+    },
     "graphics": [
       {
         "file": "index.html",
