@@ -3,3 +3,6 @@ It works with NodeCG versions which satisfy this [semver](https://docs.npmjs.com
 You will need to have an appropriate version of NodeCG installed to use it.
 
 Heavily inspired by @ProbablePrime's 'prime-alerts'.
+
+
+![Screenshot](screenshot.png)
