@@ -1,0 +1,31 @@
+{
+  "name": "tiltify-donation-alert",
+  "version": "0.0.0",
+  "description": "Tiltify Donation Alerts",
+  "homepage": "https://github.com/daniellockard/nodecg-tiltify-alerts",
+  "author": {
+    "name": "Danny Lockard",
+    "email": "danielhlockard@gmail.com",
+    "url": ""
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "graphics": [
+      {
+        "file": "index.html",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  }
+}
