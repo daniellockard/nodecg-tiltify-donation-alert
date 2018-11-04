@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-	<style>
-		body {
-			font-family: sans-serif;
-			margin: 0px;
-		}
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0px;
+        }
 
-		.monospace {
-			font-family: monospace;
-		}
-	</style>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-	<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineLite.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/easing/EasePack.min.js"></script>
+        .monospace {
+            font-family: monospace;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/easing/EasePack.min.js"></script>
 
-	<script src="./alert.js"></script>
+    <script src="./alert.js"></script>
 
 </head>
+
 <body>
-	<script>
-	$(function() {
-		var stageElement = document.createElement('canvas');
-		stageElement.id = 'alert';
-		stageElement.width = window.innerWidth;
-		stageElement.height = 100;
-		document.body.appendChild(stageElement);
-		var stage = new createjs.Stage('alert');
-		createjs.Ticker.framerate = 60;
-		createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCED;
-		createjs.Ticker.addEventListener('tick', event => {
-			stage.update();
-		});
-		const alert = new Alert(window.innerWidth, 50);
+    <script>
+        $(function() {
+            var stageElement = document.createElement('canvas');
+            stageElement.id = 'alert';
+            stageElement.width = window.innerWidth;
+            stageElement.height = 100;
+            document.body.appendChild(stageElement);
+            var stage = new createjs.Stage('alert');
+            createjs.Ticker.framerate = 60;
+            createjs.Ticker.timingMode = createjs.Ticker.RAF_SYNCED;
+            createjs.Ticker.addEventListener('tick', event => {
+                stage.update();
+            });
+            const alert = new Alert(window.innerWidth, 50);
 
-		stage.addChild(alert.container);
+            stage.addChild(alert.container);
 
-		var donationsRep = nodecg.Replicant("donations", "nodecg-tiltify");
+            var donationsRep = nodecg.Replicant("donations", "nodecg-tiltify");
 
-		donationsRep.on("change", function(newvalue, oldvalue) {
-			for(let i = 0; i < newvalue.length; i++) {
-				if(newvalue[i].shown) {
-					continue;
-				}
-				alert.notify(`${newvalue[i].name} Donated $${newvalue[i].amount}`, newvalue[i]);
-				newvalue[i].shown = true
-			}
+            donationsRep.on("change", function(newvalue, oldvalue) {
+                for (let i = 0; i < newvalue.length; i++) {
+                    if (newvalue[i].shown) {
+                        continue;
+                    }
+                    alert.notify(`${newvalue[i].name} Donated $${newvalue[i].amount}`, newvalue[i]);
+                    newvalue[i].shown = true
+                }
 
-		});
+            });
 
-	});
-	</script>
+        });
+    </script>
 </body>
+
 </html>
