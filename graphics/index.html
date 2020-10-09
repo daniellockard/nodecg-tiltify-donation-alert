@@ -49,7 +49,7 @@
                         continue;
                     }
                     alert.notify(`${newvalue[i].name} Donated $${newvalue[i].amount}`, newvalue[i]);
-                    newvalue[i].shown = true
+                    nodecg.sendMessageToBundle('mark-donation-as-shown', 'nodecg-tiltify', newvalue[i]);
                 }
 
             });
